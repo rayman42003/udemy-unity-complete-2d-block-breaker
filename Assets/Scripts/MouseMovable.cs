@@ -9,7 +9,7 @@ public class MouseMovable : MonoBehaviour
     private float rightPad = 1;
 
     [SerializeField]
-    private Camera mainCamera;
+    private Camera mainCamera = null;
 
     private void Start() {
     }
