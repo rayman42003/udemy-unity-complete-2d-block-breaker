@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 611672833}
   - component: {fileID: 611672834}
   - component: {fileID: 611672835}
+  - component: {fileID: 611672836}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -311,6 +312,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 1670178267}
   offset: {x: 0, y: 0.5}
+--- !u!114 &611672836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611672830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531c0ee4e02ec75489babbb70436ce54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchForce: {x: 2, y: 15}
+  onLaunch:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 611672835}
+        m_MethodName: detach
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1056630148
 GameObject:
   m_ObjectHideFlags: 0
