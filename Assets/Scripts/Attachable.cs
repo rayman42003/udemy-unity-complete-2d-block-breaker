@@ -13,10 +13,16 @@ public class Attachable : MonoBehaviour
         if (rigidbody2d) {
             rigidbody2d.simulated = false;
         }
+
+        transform.parent = parentObject.transform;
+        transform.position = getOffsetFromGameObj(parentObject, offset);
     }
 
     private void Update() {
-        Vector2 paddlePos = new Vector2(parentObject.transform.position.x, parentObject.transform.position.y);
-        gameObject.transform.position = paddlePos + offset;
+    }
+
+    private Vector2 getOffsetFromGameObj(GameObject gameObj, Vector2 offset) {
+        Vector2 gameObjPos = new Vector2(gameObj.transform.position.x, gameObj.transform.position.y);
+        return gameObjPos + offset;
     }
 }
