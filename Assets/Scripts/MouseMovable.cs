@@ -15,7 +15,7 @@ public class MouseMovable : MonoBehaviour
     }
 
     private void Update() {
-        var widthInWorldUnits = mainCamera.orthographicSize * 8 / 3;
+        var widthInWorldUnits = mainCamera.orthographicSize * 2 * Screen.width / Screen.height;
         var mouseXPosInWorldUnits = Input.mousePosition.x / Screen.width * widthInWorldUnits;
         var paddleXPos = Mathf.Clamp(mouseXPosInWorldUnits, leftPad, widthInWorldUnits - rightPad);
         Vector2 paddlePos = new Vector2(paddleXPos, transform.position.y);
