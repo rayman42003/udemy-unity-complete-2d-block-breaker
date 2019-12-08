@@ -3,6 +3,12 @@
 public class MouseMovable : MonoBehaviour
 {
     [SerializeField]
+    private float leftPad = 1;
+
+    [SerializeField]
+    private float rightPad = 1;
+
+    [SerializeField]
     private Camera mainCamera;
 
     private void Start() {
@@ -11,7 +17,8 @@ public class MouseMovable : MonoBehaviour
     private void Update() {
         var widthInWorldUnits = mainCamera.orthographicSize * 8 / 3;
         var mouseXPosInWorldUnits = Input.mousePosition.x / Screen.width * widthInWorldUnits;
-        Vector2 paddlePos = new Vector2(mouseXPosInWorldUnits, transform.position.y);
+        var paddleXPos = Mathf.Clamp(mouseXPosInWorldUnits, leftPad, widthInWorldUnits - rightPad);
+        Vector2 paddlePos = new Vector2(paddleXPos, transform.position.y);
         transform.position = paddlePos;
     }
 }
