@@ -4,10 +4,10 @@ using UnityEngine.Events;
 public class Launchable : MonoBehaviour
 {
     [SerializeField]
-    private Vector2 launchForce;
+    private Vector2 launchForce = new Vector2();
 
     [SerializeField]
-    private UnityEvent onLaunch;
+    private UnityEvent onLaunch = new UnityEvent();
 
     [SerializeField]
     private int numLaunches = 1;
