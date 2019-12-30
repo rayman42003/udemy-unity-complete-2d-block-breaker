@@ -2,13 +2,21 @@
 
 public class Audible : MonoBehaviour
 {
-    private AudioSource myAudioSource;
+    [SerializeField]
+    private bool playAtCamera = false;
+
+    private AudioSource audioSource;
 
     public void playSound() {
-        myAudioSource.Play();
+        if (playAtCamera) {
+            AudioSource.PlayClipAtPoint(audioSource.clip, Camera.main.transform.position,
+                audioSource.volume);
+        } else {
+            audioSource.Play();
+        }
     }
 
     private void Start() {
-        myAudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 }
