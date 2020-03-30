@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531c0ee4e02ec75489babbb70436ce54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchForce: {x: 4, y: 15}
+  launchForce: {x: 2, y: 7.5}
   onLaunch:
     m_PersistentCalls:
       m_Calls:
@@ -303,3 +303,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0d0f13bd5a06c40ab8baac68bfb1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtCamera: 0
