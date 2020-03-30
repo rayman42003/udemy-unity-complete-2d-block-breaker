@@ -11,6 +11,9 @@ public class BlockLevel : MonoBehaviour
     private float gameSpeed = 0.5f;
 
     [SerializeField]
+    private int score = 0;
+
+    [SerializeField]
     private UnityEvent onLevelCleared = new UnityEvent();
 
     public void addBlock() {
@@ -22,6 +25,10 @@ public class BlockLevel : MonoBehaviour
         if (numBlocks <= 0) {
             onLevelCleared.Invoke();
         }
+    }
+
+    public void changeScore(int value) {
+        score += value;
     }
 
     private void Update() {

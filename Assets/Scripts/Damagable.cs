@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class Damagable : MonoBehaviour
 {
@@ -7,7 +6,10 @@ public class Damagable : MonoBehaviour
     private int hitPoints = 1;
 
     [SerializeField]
-    private UnityEvent onKilled = new UnityEvent();
+    private int pointValue = 100;
+
+    [SerializeField]
+    private ScorableEvent onKilled = new ScorableEvent();
 
     private void OnCollisionEnter2D(Collision2D collision) {
         damage();
@@ -21,7 +23,7 @@ public class Damagable : MonoBehaviour
     }
 
     private void kill() {
-        onKilled.Invoke();
+        onKilled.Invoke(pointValue);
         Destroy(gameObject);
     }
 }
