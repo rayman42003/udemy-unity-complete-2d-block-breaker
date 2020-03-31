@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class BlockLevel : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class BlockLevel : MonoBehaviour
 
     [SerializeField]
     private int score = 0;
+
+    [SerializeField]
+    private Text scoreText;
 
     [SerializeField]
     private UnityEvent onLevelCleared = new UnityEvent();
@@ -29,6 +33,11 @@ public class BlockLevel : MonoBehaviour
 
     public void changeScore(int value) {
         score += value;
+        scoreText.text = score.ToString();
+    }
+
+    private void Start() {
+        scoreText.text = score.ToString();
     }
 
     private void Update() {
