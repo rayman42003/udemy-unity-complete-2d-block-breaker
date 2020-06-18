@@ -9,4 +9,8 @@ public class Spawnable : MonoBehaviour
     private void Start() {
         onCreate.Invoke();
     }
+
+    public void RegisterOnSpawn(UnityAction action) {
+        onCreate.AddListener(action);
+    }
 }

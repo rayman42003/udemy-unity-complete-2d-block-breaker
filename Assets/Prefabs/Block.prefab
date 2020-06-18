@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 8411928463222159499}
   - component: {fileID: 8411928463222159498}
   - component: {fileID: 8411928463222159496}
+  - component: {fileID: 3701210093163602686}
   - component: {fileID: 8411928463222159497}
   - component: {fileID: 1816859475}
   - component: {fileID: 1816859476}
   - component: {fileID: 857442686902653692}
+  - component: {fileID: 1111603927599742476}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -110,6 +112,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3701210093163602686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411928463222159509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd3d734177f3a24ca41bbfb1ff2c9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8411928463222159497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 1
+  pointValue: 100
   onKilled:
     m_PersistentCalls:
       m_Calls:
@@ -148,8 +163,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!82 &1816859475
 AudioSource:
   m_ObjectHideFlags: 0
@@ -287,3 +305,18 @@ MonoBehaviour:
         m_CallState: 1
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1111603927599742476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411928463222159509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6554dea3853bdb244b6524fd24552e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageLevels:
+  - {fileID: 21300000, guid: 380fb7d4d474a2b49a90425db7853712, type: 3}
+  - {fileID: 21300000, guid: bfa1c6e26da9c3c49929fc562d32ff19, type: 3}

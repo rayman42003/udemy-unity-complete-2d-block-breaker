@@ -17,7 +17,7 @@ public class GameSession : MonoBehaviour
         }
 
         foreach (Damagable d in FindObjectsOfType<Damagable>()) {
-            d.addOnKilledListener((point) => ChangeScore(point));
+            d.RegisterOnKilled((point) => ChangeScore(point));
         }
 
         BlockLevel level = FindObjectOfType<BlockLevel>();

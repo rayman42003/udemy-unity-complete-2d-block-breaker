@@ -12,6 +12,9 @@ public class Damagable : MonoBehaviour
     [SerializeField]
     private IntEvent onKilled = new IntEvent();
 
+    [SerializeField]
+    private IntEvent onDamaged = new IntEvent();
+
     private void OnCollisionEnter2D(Collision2D collision) {
         damage();
     }
@@ -20,6 +23,8 @@ public class Damagable : MonoBehaviour
         hitPoints--;
         if (hitPoints == 0) {
             kill();
+        } else {
+            onDamaged.Invoke(hitPoints);
         }
     }
 
@@ -28,7 +33,11 @@ public class Damagable : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void addOnKilledListener(UnityAction<int> action) {
+    public void RegisterOnKilled(UnityAction<int> action) {
         onKilled.AddListener(action);
+    }
+
+    public void RegisterOnDamaged(UnityAction<int> action) {
+        onDamaged.AddListener(action);
     }
 }
