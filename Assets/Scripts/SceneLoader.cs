@@ -11,6 +11,8 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadStartScene() {
         SceneManager.LoadScene("00-start-menu");
+        GameSession gameSession = FindObjectOfType<GameSession>();
+        gameSession.Reset();
     }
 
     public void ExitScene() {

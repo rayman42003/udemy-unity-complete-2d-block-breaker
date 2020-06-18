@@ -12,9 +12,6 @@ public class BlockLevel : MonoBehaviour
     private float gameSpeed = 0.5f;
 
     [SerializeField]
-    private int score = 0;
-
-    [SerializeField]
     private Text scoreText;
 
     [SerializeField]
@@ -31,13 +28,11 @@ public class BlockLevel : MonoBehaviour
         }
     }
 
-    public void changeScore(int value) {
-        score += value;
+    public void updateScore(int score) {
         scoreText.text = score.ToString();
     }
 
     private void Start() {
-        scoreText.text = score.ToString();
     }
 
     private void Update() {
