@@ -232,6 +232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e235cebd67b5645ba4e6fa88e647c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minVelocityMagnitude: 7
+  maxVelocityMagnitude: 8
+  recalibrationPeriod: 1
+  shouldRecalibrate: 0
 --- !u!114 &4938366878169921349
 MonoBehaviour:
   m_ObjectHideFlags: 0
