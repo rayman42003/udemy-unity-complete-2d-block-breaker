@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
@@ -6,7 +7,13 @@ public class SceneLoader : MonoBehaviour
     public void LoadNextScene() {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int totalScenes = SceneManager.sceneCountInBuildSettings;
-        SceneManager.LoadScene((currentSceneIndex + 1) % totalScenes);
+        int nextSceneIndex = (currentSceneIndex + 1) % totalScenes;
+        StartCoroutine(delayLoad(0.3f, nextSceneIndex));
+    }
+
+    private IEnumerator delayLoad(float seconds, int sceneIndex) {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene(sceneIndex);
     }
 
     public void LoadStartScene() {
