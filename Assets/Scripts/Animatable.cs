@@ -13,6 +13,9 @@ public class Animatable : MonoBehaviour
 
     public void changeSprite(int healthRemaining) {
         int spriteIndex = healthRemaining - 1;
+        if (spriteIndex < 0) {
+            spriteIndex = 0;
+        }
         if (spriteIndex < damageLevels.Length) {
             spriteRenderer.sprite = damageLevels[spriteIndex];
         }
