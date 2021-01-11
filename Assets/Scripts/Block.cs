@@ -6,12 +6,9 @@ public class Block : MonoBehaviour
         Damagable damagable = GetComponent<Damagable>();
         BlockLevel level = FindObjectOfType<BlockLevel>();
 
-        Spawnable spawnable = GetComponent<Spawnable>();
-        spawnable.RegisterOnSpawn(() => level.addBlock());
-
         Audible audible = GetComponent<Audible>();
-        damagable.RegisterOnKilled((score) => audible.playSound());
-        damagable.RegisterOnKilled((score) => level.removeBlock());
+        damagable.RegisterOnKilled((d) => audible.playSound());
+        damagable.RegisterOnKilled((d) => level.removeBlock(d));
 
         Animatable animatable = GetComponent<Animatable>();
         damagable.RegisterOnDamaged((healthRemaining) => animatable.changeSprite(healthRemaining));

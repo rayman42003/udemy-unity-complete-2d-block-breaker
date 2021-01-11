@@ -10,10 +10,14 @@ public class Damagable : MonoBehaviour
     private int pointValue = 100;
 
     [SerializeField]
-    private IntEvent onKilled = new IntEvent();
+    private DamagableEvent onKilled = new DamagableEvent();
 
     [SerializeField]
     private IntEvent onDamaged = new IntEvent();
+
+    public int getPointValue() {
+        return pointValue;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         damage();
@@ -29,11 +33,11 @@ public class Damagable : MonoBehaviour
     }
 
     private void kill() {
-        onKilled.Invoke(pointValue);
+        onKilled.Invoke(this);
         Destroy(gameObject);
     }
 
-    public void RegisterOnKilled(UnityAction<int> action) {
+    public void RegisterOnKilled(UnityAction<Damagable> action) {
         onKilled.AddListener(action);
     }
 

@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class BlockLevel : MonoBehaviour
 {
-    [Range(0.1f, 2.0f)]
-    [SerializeField]
-    private int numBlocks = 0;
+    private HashSet<int> blockIds = new HashSet<int>();
 
+    [Range(0.1f, 2.0f)]
     [SerializeField]
     private float gameSpeed = 0.5f;
 
@@ -17,13 +17,9 @@ public class BlockLevel : MonoBehaviour
     [SerializeField]
     private UnityEvent onLevelCleared = new UnityEvent();
 
-    public void addBlock() {
-        numBlocks++;
-    }
-
-    public void removeBlock() {
-        numBlocks--;
-        if (numBlocks <= 0) {
+    public void removeBlock(Damagable block) {
+        blockIds.Remove(block.gameObject.GetInstanceID());
+        if (blockIds.Count <= 0) {
             onLevelCleared.Invoke();
         }
     }
@@ -33,6 +29,9 @@ public class BlockLevel : MonoBehaviour
     }
 
     private void Start() {
+        foreach (Block block in FindObjectsOfType<Block>()) {
+            blockIds.Add(block.gameObject.GetInstanceID());
+        }
     }
 
     private void Update() {
