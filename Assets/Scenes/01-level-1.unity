@@ -3181,11 +3181,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block Game Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3423746787456976888, guid: b11ca1e026d0e0a4e8cf3337e56aad2b,
-        type: 3}
-      propertyPath: m_Text
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5591994171329347144, guid: b11ca1e026d0e0a4e8cf3337e56aad2b,
         type: 3}
       propertyPath: m_LocalPosition.x
